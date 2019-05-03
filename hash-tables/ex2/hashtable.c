@@ -98,6 +98,7 @@ char *hash_table_retrieve(HashTable *ht, char *key)
 
   while (current_pair != NULL) {
     if (strcmp(current_pair->key, key) == 0) {
+      // printf("Key: %s Value: %s\n", key, current_pair->value);
       return current_pair->value;
     }
     current_pair = current_pair->next;
