@@ -25,8 +25,12 @@ This sprint challenge is divided up into three parts: Boolean algebra (11 points
 During your challenge, you will be pulled aside by a PM for a 5 minute interview. During this interview, you will be expected to answer the following three questions:
 
   * 1. What is a computer and how does it work?
+    - It is a machine or device that performs processes, calculations and operations based on instructions provided by a software or hardware.
+      - At the most basic level; it operates on switches that turn either ON or OFF
   * 2. What is an array and how does it work?
+    - Sequence of elements of the same type (size) stored in a contiguous block of memory; you use a pointer of the first element to access that arrays information
   * 3. What is a hash table and how does it work?
+    - It is a data structure that implements an associative array abstract data type, a structure that can map keys to values. It uses a hash function to compute an index into an array of buckets from which the desired value can be found.
 
 You will receive points at the PM's discretion based on the following criteria:
 
