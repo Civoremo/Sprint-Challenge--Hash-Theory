@@ -43,13 +43,18 @@ void hash_table_insert(HashTable *ht, int key, int value)
   LinkedPair *last_pair;
 
   while (current_pair != NULL && current_pair->key != key) {
+    // printf("[limit - weight]: %d index: %d\n", key, value);
     last_pair = current_pair;
     current_pair = last_pair->next;
   }
 
   if (current_pair != NULL) {
+    // printf("Update Bucket: [limit - weight]: %d index: %d\n", key, value);
+    // printf("Update at index: %d\n", index);
     current_pair->value = value;
   } else {
+    // printf("New Bucket: [limit - weight]: %d index: %d\n", key, value);
+    // printf("New at index: %d Value: %d\n", index, value);
     LinkedPair *new_pair = create_pair(key, value);
     new_pair->next = ht->storage[index];
     ht->storage[index] = new_pair;
