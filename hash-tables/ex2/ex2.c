@@ -10,6 +10,22 @@ char **reconstruct_trip(Ticket **tickets, int length)
   char **route = malloc(length * sizeof(char *));
 
   // YOUR CODE HERE
+  // populate hash table with tickets; set key as source and value as destination
+  for (int i = 0; i < length; i++)
+  {
+    hash_table_insert(ht, tickets[i]->source, tickets[i]->destination);
+  }
+
+  // start chain of flights with source as "None"
+  char *my_ticket = "NONE";
+  for (int i = 0; i < length; i++)
+  {
+    // set route[i] value to be the retrieved destination from hash table at that key
+    route[i] = hash_table_retrieve(ht, my_ticket);
+    // printf("Source: %s Destination: %s I: %d\n", my_ticket, route[i], i);
+    // update our our key with new source
+    my_ticket = route[i];
+  }
 
   return route;
 }

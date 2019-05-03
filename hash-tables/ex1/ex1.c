@@ -8,7 +8,30 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
   HashTable *ht = create_hash_table(16);
 
   // YOUR CODE HERE
+  Answer *answer = malloc(sizeof(Answer *));
 
+  for (int i = 0; i < length; i++)
+  {    
+    // if key exists in hash table
+    if ((hash_table_retrieve(ht, weights[i])) != -1)
+    {
+      // set i to be our larger index
+      answer->index_1 = i;
+      // set our second index to be the value (i) we stored in hash index
+      // printf("Weight: %d\n", weights[i]);
+      answer->index_2 = hash_table_retrieve(ht, weights[i]);
+      // printf("Found match: i1: %d i2:%d INDEX: %d WEIGHT: %d\n", answer->index_1, answer->index_2, i, weights[i]);
+      return answer;
+    }
+    // if key does not exist in table; insert into hash table
+    // set key to be the sum of (limit - weights[i]) and value to be (i)
+    else
+    {
+      hash_table_insert(ht, (limit - weights[i]), i);
+    }
+  }  
+
+  // printf("No match found\n");
   return NULL;
 }
 
